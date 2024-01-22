@@ -9,20 +9,41 @@ import random
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
-COLORS = []
+class Balle():
+    def __init__(self, x,y,change_x, change_y):
+        self.x = x
+        self.y = y
+        self.change_x = change_x
+        self.change_y = change_y
+        x = random.randint(0,50)
+        y = random.randint(0,50)
+        change_x = 1
+        change_y = 1
 
-
-class MyGame(arcade.Window):
-    def __init__(self):
-        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, 'Exercice #1')
-        pass
-
-    def setup(self):
-
-        pass
 
     def on_draw(self):
-        arcade.start_render()
+        arcade.draw_circle_filled(self.x, self.y, self.rayon, self.color)
+
+
+    class MyGame(arcade.Window):
+        def __init__(self):
+            super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, 'Exercice #1')
+            self.liste_balle = []
+
+        def setup(self):
+
+            pass
+
+        def on_draw(self):
+            arcade.start_render()
+            for i in self.liste_balle:
+                i.on_draw()
+
+        def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
+            ball = Balle(x,y, random(0,50), random(0,50))
+            self.liste_balle.append(ball)
+
+Balle(1, 1, 1, 1)
 
         pass
 
@@ -55,25 +76,3 @@ def main():
 main()
 import arcade
 
-
-class Balle(arcade.window):
-    def __init__(self, width, height, title):
-        super().__init__(width, height, title)
-
-def main():
-
-    window = Balle(640, 480, "Drawing Example")
-
-    arcade.run()
-
-
-main()
-
-def on_draw(self):
-    """
-    
-    """
-
-    arcade.start_render()
-
-    arcade.draw_circle_filled(10, 10, 20, (255, 54, 34))
