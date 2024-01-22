@@ -45,34 +45,3 @@ class Balle():
 
 Balle(1, 1, 1, 1)
 
-        pass
-
-    def main():
-        my_game = MyGame()
-        my_game.setup()
-
-        arcade.run()
-
-        main()
-
-def main():
-    arcade.open_window(SCREEN_WIDTH, SCREEN_HEIGHT, 'Tutoriel Arcade')
-
-    arcade.run()
-
-main()
-import arcade
-
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-
-
-def main():
-    arcade.open_window(SCREEN_WIDTH, SCREEN_HEIGHT, 'Tutoriel Arcade')
-
-    arcade.run()
-
-
-main()
-import arcade
-
